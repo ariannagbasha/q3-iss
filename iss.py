@@ -13,6 +13,15 @@ def astronauts():
     print(f'Number of people in the station: {num_peeps}')
     print(who_peeps)
 
+
+def coordinates():
+    r = requests.get('http://api.open-notify.org/iss-now.json').json()
+    lat = r['iss_position']['latitude']
+    lon = r['iss_position']['longitude']
+    print(f'Iss Position: {lat} {lon}')
+    return [lon, lat]
+
+
 def main():
     astronauts()
 
